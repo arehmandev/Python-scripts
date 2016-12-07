@@ -16,7 +16,7 @@ elif sys.argv[1] == "help":
     print "Note: All currencies are compared live with EUROS as the base value of 1"
 
 elif sys.argv[1] == "list":
-    for k, v in moneyjson.items():
+    for k, v in sorted(moneyjson.items()):
         print("%s: %s" % (k, v))
 
 elif len(sys.argv) == 2:
