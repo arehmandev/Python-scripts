@@ -1,0 +1,10 @@
+{
+"commit_id": "d44f19c",
+"environment": "test",
+"package_build_date": "15/05/2015",
+"project": "devopstest",
+"tags_at_commit": [
+"v1.6.0-rc.1"
+],
+"version": "v1.6.0-rc.1"
+}

@@ -26,21 +26,18 @@ if len(sys.argv) !=2:
 elif sys.argv[1] == "help":
     print "Your options are as follows:"
     print "1 - 'python curl.py version' - This shows the current live version.json number"
-    print "2 - 'python currency.py 1.11' - Replace 1.11 with the version you wish compare to live"
-    print "Note: All currencies are compared live with EUROS as the base value of 1"
+    print "2 - python curl.py version.json - Reads json file version"
 
 elif sys.argv[1] == "version":
     print versionjson
     print "For more options, type 'python curl.py help'"
 
-elif sys.argv[1] < versionjson:
-    print "Live version is newer"
-    print sys.argv[1], "<", versionjson
-
-elif sys.argv[1] > versionjson:
-    print "Live version is older"
-    print sys.argv[1], ">", versionjson
+elif sys.argv[1].endswith(".json"):
+    with open(sys.argv[1]) as data_file:
+        data = json.load(data_file)['version']
+        filever = re.search(r"\d+(\.\d+)?", data).group(0)
+        print "File version is (", filever, ") compared to live version (", versionjson, ")."
 
 else:
-    print "How on earth did you get here"
+    print "Error, how on earth did you get here"
     print "Type in 'python curl.py help' for options"
