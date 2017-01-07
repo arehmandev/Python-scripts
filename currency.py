@@ -19,6 +19,18 @@ elif sys.argv[1] == "list":
     for k, v in sorted(moneyjson.items()):
         print("%s: %s" % (k, v))
 
+elif sys.argv[1] == "convert":
+    currency1 = sys.argv[3]
+    capitalized1 = argument.upper()
+    currency2 = sys.argv[4]
+    capitalized2 = argument.upper()
+    result = (sys.argv[1] / moneyjson['capitalized1']) * moneyjson['capitalized2']
+        try:
+            print result
+        except Exception, e:
+            print "Error, make sure format correct e.g. 1 GBP USD"
+            print "Type in 'python currency.py help' for options"
+
 elif len(sys.argv) == 2:
     argument = sys.argv[1]
     capitalized = argument.upper()
